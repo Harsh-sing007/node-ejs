@@ -20,8 +20,10 @@ const productSchema = mongoose.Schema({
 const productModel = mongoose.model("products", productSchema);
 app.get("/", async (req, res) => {
   const products = await productModel.find();
-  res.json(products);
+ // res.json(products);
+ res.render("index")
 });
+
 app.post("/", async (req, res) => {
   const body = req.body;
   const result = await productModel.create(body);
